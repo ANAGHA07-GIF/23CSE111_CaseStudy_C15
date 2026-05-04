@@ -1,71 +1,126 @@
 package SmartParkingSystem;
+
 import java.util.List;
+import java.util.Scanner;
+
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		 ParkingLot lot = new ParkingLot(1, "City Center", 5);
+        Scanner sc = new Scanner(System.in);
 
-		   
-	        ParkingSlot s1 = new ParkingSlot(101, 1, 1);
-	        ParkingSlot s2 = new ParkingSlot(102, 2, 1);
-	        ParkingSlot s3 = new ParkingSlot(103, 3, 1);
+    
+        System.out.print("Enter Parking Lot ID: ");
+        int lotID = sc.nextInt();
+        sc.nextLine();
 
-	        lot.addSlot(s1);
-	        lot.addSlot(s2);
-	        lot.addSlot(s3);
+        System.out.print("Enter Location: ");
+        String location = sc.nextLine();
 
-	    
-	        Driver driver = new Driver(1, "Alice", "9876543210", "KL01AB1234");
+        System.out.print("Enter Total Slots: ");
+        int totalSlots = sc.nextInt();
 
-	        driver.login("user@gmail.com", "1234");
+        ParkingLot lot = new ParkingLot(lotID, location, totalSlots);
 
-	    
-	        List<ParkingSlot> availableSlots = driver.searchSlot(lot);
+        System.out.print("Enter number of slots to add: ");
+        int n = sc.nextInt();
 
-	 
-	        Reservation reservation = null;
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nEnter details for slot " + (i + 1));
 
-	        if (!availableSlots.isEmpty()) {
-	            ParkingSlot chosenSlot = availableSlots.get(0);
-	            reservation = driver.reserveSlot(chosenSlot);
-	        }
+            System.out.print("Slot ID: ");
+            int slotID = sc.nextInt();
 
-	       
-	        if (reservation != null) {
-	            Payment payment = new Payment(1, 0, "UPI");
+            System.out.print("Slot Number: ");
+            int slotNumber = sc.nextInt();
 
-	            payment.calculateFee(2); 
+            System.out.print("Floor Number: ");
+            int floorNumber = sc.nextInt();
 
-	            driver.makePayment(payment);
-	        }
+            ParkingSlot slot = new ParkingSlot(slotID, slotNumber, floorNumber);
+            lot.addSlot(slot);
+        }
 
-	       
-	        if (reservation != null) {
-	            System.out.println("Current Status: " + reservation.checkStatus());
+        sc.nextLine(); 
 
-	            reservation.cancelReservation();
+        // Driver details
+        System.out.println("\nEnter Driver Details:");
 
-	            System.out.println("Updated Status: " + reservation.checkStatus());
-	        }
+        System.out.print("User ID: ");
+        int userID = sc.nextInt();
+        sc.nextLine();
 
-	       
-	        Admin admin = new Admin(2, "AdminUser", "9999999999", 1001, "admin@gmail.com", "admin123");
+        System.out.print("Name: ");
+        String name = sc.nextLine();
 
-	        admin.manageSlots();
-	        admin.updatePricing(100);
-	        admin.monitorParking();
+        System.out.print("Phone Number: ");
+        String phone = sc.nextLine();
 
-	        System.out.println(admin.generateReports());
+        System.out.print("Vehicle Number: ");
+        String vehicle = sc.nextLine();
 
-	      
-	        lot.displayLot();
+        Driver driver = new Driver(userID, name, phone, vehicle);
 
-	        
-	        driver.logout();
-	    }
-	
+        // Login
+        System.out.print("\nEnter Email: ");
+        String email = sc.nextLine();
 
+        System.out.print("Enter Password: ");
+        String password = sc.nextLine();
+
+        driver.login(email, password);
+
+        // Search slots
+        List<ParkingSlot> availableSlots = driver.searchSlot(lot);
+
+        Reservation reservation = null;
+
+        if (!availableSlots.isEmpty()) {
+            ParkingSlot chosenSlot = availableSlots.get(0);
+            reservation = driver.reserveSlot(chosenSlot);
+        }
+
+        // Payment
+        if (reservation != null) {
+
+            System.out.print("\nEnter Payment Method: ");
+            String method = sc.nextLine();
+
+            System.out.print("Enter number of hours: ");
+            int hours = sc.nextInt();
+
+            Payment payment = new Payment(1, 0, method);
+
+            payment.calculateFee(hours);
+            driver.makePayment(payment);
+        }
+
+        // Reservation status
+        if (reservation != null) {
+            System.out.println("Current Status: " + reservation.checkStatus());
+
+            reservation.cancelReservation();
+
+            System.out.println("Updated Status: " + reservation.checkStatus());
+        }
+
+        // Admin
+        Admin admin = new Admin(2, "AdminUser", "9999999999",
+                1001, "admin@gmail.com", "admin123");
+
+        admin.manageSlots();
+        admin.updatePricing(100);
+        admin.monitorParking();
+
+        System.out.println(admin.generateReports());
+
+        // Display lot
+        lot.displayLot();
+
+        driver.logout();
+
+        sc.close();
+    }
 }
 
 
