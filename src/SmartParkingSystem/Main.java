@@ -16,7 +16,7 @@ public class Main {
 	        lot.addSlot(s3);
 
 	    
-	        Driver driver = new Driver(1, "Anagha", "9876543210", "KL01AB1234");
+	        Driver driver = new Driver(1, "Alice", "9876543210", "KL01AB1234");
 
 	        driver.login("user@gmail.com", "1234");
 
