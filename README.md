@@ -26,50 +26,311 @@ Steps:
 javac Main.java
 java Main
 ________________________________________
-Sample Input / Output
-INPUT:
-Enter details for slot 2
-Slot ID: 102
-Slot Number: 2
-Floor Number: 1
+===== SMART PARKING MANAGEMENT SYSTEM =====
+1. Admin
+2. Driver
+3. Exit
+Enter your choice: 1
 
-Enter details for slot 3
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 1
+Enter Parking Lot ID: 102
+Enter Location: Airport
+Enter Total Slots: 4
+Parking Lot created successfully.
+
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 2
+Enter number of slots to add: 3
+
+Enter details for Slot 1
 Slot ID: 103
-Slot Number: 3
+Slot Number: 1
+Floor Number: 3
+
+Enter details for Slot 2
+Slot ID: 101
+Slot Number: 1
 Floor Number: 1
 
-Enter Driver Details:
-User ID: 10001
-Name: Alice
-Phone Number: 9446601831
-Vehicle Number: KL02BA5258
+Enter details for Slot 3
+Slot ID: 102
+Slot Number: 1
+Floor Number: 1
+Slots added successfully.
 
-Enter Email: alice14@gmail.com
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 3
+
+===== SLOT DETAILS =====
+Slot ID: 103
+Slot Number: 1
+Floor Number: 3
+Status: Available
+
+Slot ID: 101
+Slot Number: 1
+Floor Number: 1
+Status: Available
+
+Slot ID: 102
+Slot Number: 1
+Floor Number: 1
+Status: Available
+
+
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 4
+Enter new parking price: 100
+Parking price updated to Rs. 100.0
+
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 5
+
+===== PARKING MONITORING =====
+Parking slots are available.
+
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 6
+
+===== PARKING REPORT =====
+Admin ID: 1001
+Parking Location Monitored Successfully.
+
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 7
+
+===== Parking Lot Details =====
+Lot ID: 101
+Location: Lulu mall
+Total Slots: 3
+===== Parking Lot Details =====
+Lot ID: 102
+Location: Airport
+Total Slots: 4
+------------------------------
+
+===== ADMIN MENU =====
+1. Create Parking Lot
+2. Add Parking Slots
+3. Manage Slots
+4. Update Pricing
+5. Monitor Parking
+6. Generate Reports
+7. Display Parking Lot
+8. Back
+Enter choice: 8
+Returning to Main Menu...
+
+===== SMART PARKING MANAGEMENT SYSTEM =====
+1. Admin
+2. Driver
+3. Exit
+Enter your choice: 2
+
+===== DRIVER REGISTRATION =====
+Enter User ID: Alice101
+
+Enter Name: Alice
+Enter Phone Number: 9446601831
+Enter Vehicle Number: KL02BA2525
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 1
+Enter Email: alice@gmail.com
 Enter Password: 1234
+Alice logged in successfully.
 
-Enter Payment Method: UPI
-Enter number of hours: 2
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 3
+Available slots: 3
 
-OUTPUT:
+Available Slots:
+Slot 1
+Slot 2
+Slot 3
+Choose slot number: 1
 Slot reserved successfully.
 Reservation created successfully.
 Reservation successful.
-Processing payment of Rs. 100.0 using UPI...
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 4
+Enter Payment Method: Upi
+Enter number of hours: 4
+Processing payment of Rs. 200.0 using Upi...
 Payment successful.
 Receipt generated and saved to file.
-Current Status: ACTIVE
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 5
+Reservation Status: ACTIVE
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 6
 Slot released successfully.
 Reservation cancelled.
-Updated Status: CANCELLED
-Managing parking slots.
-Pricing updated to: 100.0
-Monitoring parking.
-Parking report generated.
-Lot ID: 1
-Location: City mall
-Total Slots: 5
-Available Slots: 3
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 5
+Reservation Status: CANCELLED
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 7
+Displaying booking history...
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 8
 Alice logged out.
+
+===== DRIVER MENU =====
+1. Login
+2. Search Slots
+3. Reserve Slot
+4. Make Payment
+5. Check Reservation Status
+6. Cancel Reservation
+7. View History
+8. Logout
+9. Back
+Enter choice: 9
+Returning to Main Menu...
+
+===== SMART PARKING MANAGEMENT SYSTEM =====
+1. Admin
+2. Driver
+3. Exit
+Enter your choice: 3
+Thank you for using Smart Parking System!
+
 
 ________________________________________
 Tools / Technologies Used
