@@ -1,11 +1,11 @@
 package SmartParkingSystem;
 
 public abstract class User {
-		protected int userID;
+		protected String userID;
 	    protected String name;
 	    protected String phoneNumber;
 
-	    public User(int userID, String name, String phoneNumber) {
+	    public User(String userID, String name, String phoneNumber) {
 	        this.userID = userID;
 	        this.name = name;
 	        this.phoneNumber = phoneNumber;

@@ -6,7 +6,7 @@ import java.util.List;
 public class Driver extends User {
     private String vehicleNumber;
 
-    public Driver(int userID, String name, String phoneNumber, String vehicleNumber) {
+    public Driver(String userID, String name, String phoneNumber, String vehicleNumber) {
         super(userID, name, phoneNumber);
         this.vehicleNumber = vehicleNumber;
     }

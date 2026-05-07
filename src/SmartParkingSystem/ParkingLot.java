@@ -1,7 +1,11 @@
 package SmartParkingSystem;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class ParkingLot {
 
@@ -18,14 +22,28 @@ public class ParkingLot {
         this.totalSlots = totalSlots;
         this.availableSlots = totalSlots;
         this.slots = new ArrayList<>();
+
+        // ===== WRITE LOT DETAILS TO FILE =====
+        try {
+
+            FileWriter writer =new FileWriter("E:/parkinglot.txt", true);
+            writer.write("===== Parking Lot Details =====\n");
+            writer.write("Lot ID: " + lotID + "\n");
+            writer.write("Location: " + location + "\n");
+            writer.write("Total Slots: " + totalSlots + "\n");
+            writer.write("------------------------------\n");
+            writer.close();
+        } catch (IOException e) {
+        	System.out.println("Error writing parking lot to file.");
+        }
     }
 
     
     public void addSlot(ParkingSlot slot) {
-        slots.add(slot);
-        updateSlotCount(); 
-    }
 
+    	 slots.add(slot);
+         updateSlotCount(); 
+     }
     public boolean checkAvailability() {
         updateSlotCount(); 
         return availableSlots > 0;
@@ -40,27 +58,50 @@ public class ParkingLot {
                 count++;
             }
         }
+
         availableSlots = count;
     }
   
     public List<ParkingSlot> getAvailableSlots() {
+
         updateSlotCount(); 
-
-        List<ParkingSlot> availableList = new ArrayList<>();
-
+        List<ParkingSlot> availableList =
+                new ArrayList<>();
         for (ParkingSlot slot : slots) {
-            if ("available".equalsIgnoreCase(slot.getStatus())) {
+        	if ("available".equalsIgnoreCase(
+                    slot.getStatus())) {
+
                 availableList.add(slot);
             }
         }
+
         return availableList;
     }
 
     public void displayLot() {
-        updateSlotCount(); 
-        System.out.println("Lot ID: " + lotID);
-        System.out.println("Location: " + location);
-        System.out.println("Total Slots: " + totalSlots);
-        System.out.println("Available Slots: " + availableSlots);
+
+        // ===== READ FROM FILE =====
+        try {
+
+            BufferedReader reader =
+                    new BufferedReader(
+                            new FileReader("E:/parkinglot.txt")
+                    );
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                System.out.println(line);
+            }
+
+            reader.close();
+
+        } catch (IOException e) {
+
+            System.out.println(
+                    "Error reading parking lot file."
+            );
+        }
     }
 }
