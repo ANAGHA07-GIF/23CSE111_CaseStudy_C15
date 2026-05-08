@@ -19,6 +19,7 @@ public class ParkingSlot {
     public boolean reserveSlot() {
         if (status.equals("Available")) {
             status = "Occupied";
+            updateStatus(status);
             System.out.println("Slot reserved successfully.");
             return true;  
         } else {
@@ -29,6 +30,7 @@ public class ParkingSlot {
 
     public void releaseSlot() {
         status = "Available";
+        updateStatus(status);
         System.out.println("Slot released successfully.");
     }
 
